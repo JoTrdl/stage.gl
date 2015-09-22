@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Stage GL</title>
+
+   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  
+  <script src="js/lib/stats.min.js"></script>
+  <script src="js/lib/stage.gl.js"></script>
+  <script src="js/lib/loader.gl.js"></script>
+
+  <script src="js/effect1.js"></script>
+  <script src="js/effect2.js"></script>
+</head>
+
+<body>
+<canvas id="canvas" width="512" height="512"></canvas>
+
+</body>
+
+<extern src="fragment-1.html"></extern>
+<extern src="fragment-2.html"></extern>
+
+<script>
+  var stats = new Stats();
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.top = '0px';
+  stats.domElement.style.zIndex = 100;
+  document.body.appendChild(stats.domElement);
+  
+  var renderer = new Stage.Renderer(document.getElementById('canvas'));
+  renderer
+    .effect(new Stage.Effect1())
+    .effect(new Stage.Effect2())
+    .on('update', function() {
+      stats.update();
+    });
+
+  Loader.done(function() {
+    renderer.render();
+  });
+</script>
+
+</html>

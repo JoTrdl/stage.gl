@@ -1,0 +1,7 @@
+node_modules
+
+# Bower
+vendor
+
+# Mac OS
+.DS_Store

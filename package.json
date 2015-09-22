@@ -1,0 +1,10 @@
+{
+  "name": "Stage.gl",
+  "description": "Mini WebGL renderer",
+  "version": "1.0.0",
+  "author": "JoTrdl",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-connect": "latest"
+  }
+}
